@@ -2,7 +2,7 @@ FROM sunyi00/centos-python:latest
 
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
 
-RUN yum install -y nginx \
+RUN yum install -y make nginx \
     && pip install supervisor \
     && mkdir -p /var/log/supervisor \
 
