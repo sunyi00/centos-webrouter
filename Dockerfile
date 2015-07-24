@@ -1,4 +1,4 @@
-FROM sunyi00/centos-python:latest
+FROM sunyi00/centos-python:lain
 
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
 
