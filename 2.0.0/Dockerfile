@@ -10,6 +10,14 @@ RUN yum install -y /root/libunwind-1.1-3.sdl7.x86_64.rpm /root/tengine-filesyste
     && mkdir -p /var/log/supervisor \
     && mkdir -p /var/log/watcher
 
+RUN mv /etc/tengine /etc/nginx \
+    && ln -s /etc/nginx /etc/tengine \
+    && mv /etc/nginx/tengine.conf /etc/nginx/nginx.conf \
+    && ln -s /etc/nginx/nginx.conf /etc/tengine/tengine.conf \
+    && ln -s /usr/sbin/tengine /usr/sbin/nginx \
+    && rm -rf /var/log/tengine \
+    && ln -s /var/log/nginx /var/log/tengine
+
 VOLUME ["/var/cache/nginx"]
 VOLUME ["/var/log/nginx"]
 VOLUME ["/var/log/supervisor"]
